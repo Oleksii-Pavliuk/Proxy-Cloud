@@ -35,9 +35,13 @@ Simple instruction how to create proxy server on Cloud VM (GCP)
 
 #### - Configure proxy 
 
-  - Add your IP to allowed connections: run ```sudo vim /etc/squid/squid.conf```, then type ```/localhost``` most likely it will head you to list of allowed IP adresses where you need to add IP adress that you want to use to connect to proxy in this format : ```acl localnet src 000.000.000.0/24```( replace it with your IP
+  - Add your IP to allowed connections: run ```sudo vim /etc/squid/squid.conf```, then type ```/localhost```(search command) most likely it will head you to list of allowed IP adresses where you need to add IP adress that you want to use to connect to proxy in this format : ```acl localnet src 000.000.000.0/24```( replace it with your IP
   <img width="1603" alt="Screenshot 2023-03-10 at 4 56 50 pm" src="https://user-images.githubusercontent.com/71220725/224235254-7c1ea641-b812-4dd0-b845-a19027816559.png">
   most likely it will head you to list of allowed IP adresses where you need to add IP adress that you want to use to connect to proxy in this format : ```acl localnet src 000.000.000.0/24``` ( replace it with your IP)
+ 
+ - Allow all http traffic , in same vim /etc/squid/squid.conf search for ```/http_traffic deny all``` and change it to ```allow all```.
+ 
+ -Thats it you can quit from vim by executing ```:wx```
   
   <img width="1603" alt="Screenshot 2023-03-10 at 5 04 10 pm" src="https://user-images.githubusercontent.com/71220725/224236364-3f7afc0f-7635-4df6-9878-947a931db56b.png">
 
@@ -56,8 +60,9 @@ Simple instruction how to create proxy server on Cloud VM (GCP)
 Than chose a name for your rule and adjust everything as per this screenshot, in IP4 ranges add your IP 
 <img width="700" alt="Screenshot 2023-03-10 at 5 49 08 pm" src="https://user-images.githubusercontent.com/71220725/224243991-50305905-0f0d-41d6-96e6-dc1e8434a61f.png">
 
-Than you can test your proxy server on your machine, by running ```curl -x http://<VM external IP>:3128  -I http://google.com ```
-<img width="703" alt="Screenshot 2023-03-10 at 6 18 38 pm" src="https://user-images.githubusercontent.com/71220725/224249318-db044b92-71f1-43e2-a11c-ae1c54d8ef7d.png">
+Than you can test your proxy server on your machine, by running ```curl -x http://<VM external IP>:3128  -I https://google.com ```
+<img width="567" alt="Screenshot 2023-03-10 at 7 07 27 pm" src="https://user-images.githubusercontent.com/71220725/224259874-84125b5d-a8ff-4961-ba82-aa1efad91e82.png">
+
 
 If you encounter errors , try to restart squid on your VM, check config file, check Firewall rules
 
