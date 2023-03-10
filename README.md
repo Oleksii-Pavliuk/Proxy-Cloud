@@ -30,7 +30,7 @@ Simple instruction how to create proxy server on Cloud VM (GCP)
   - After downloading squid, start it running ```sudo systemctl start squid```,
   - And enable it running ```sudo systemctl enable squid``` 
 <img width="1603" alt="Screenshot 2023-03-10 at 4 39 35 pm" src="https://user-images.githubusercontent.com/71220725/224232797-fe877047-47c6-48e4-b05f-ed15261b288e.png">
- - To check if its runningg execeute ```systemctl status squid ```, and it shoud say that its active 
+ - To check if its runningg execeute ```systemctl status squid``` , and it shoud say that its active 
 <img width="1603" alt="Screenshot 2023-03-10 at 4 45 26 pm" src="https://user-images.githubusercontent.com/71220725/224233594-0af77de5-1fe4-4d3a-a71e-a0843a354784.png">
 
 #### - Configure proxy 
@@ -61,6 +61,7 @@ Than chose a name for your rule and adjust everything as per this screenshot, in
 <img width="700" alt="Screenshot 2023-03-10 at 5 49 08 pm" src="https://user-images.githubusercontent.com/71220725/224243991-50305905-0f0d-41d6-96e6-dc1e8434a61f.png">
 
 Than you can test your proxy server on your machine, by running ```curl -x http://<VM external IP>:3128  -I https://google.com ```
+
 <img width="567" alt="Screenshot 2023-03-10 at 7 07 27 pm" src="https://user-images.githubusercontent.com/71220725/224259874-84125b5d-a8ff-4961-ba82-aa1efad91e82.png">
 
 
